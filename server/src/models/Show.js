@@ -47,6 +47,7 @@ const showSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Show', showSchema);
 
+/*
 {
     "headliner": "Longgoodbye",
     "supports": ["Cruelty", "Emancipation", "Sanguine Rose", "Instrument of God"],
@@ -57,3 +58,4 @@ module.exports = mongoose.model('Show', showSchema);
     "spotifyArtistId": "2yfv45UhAaHIGmrnvstbb2",
     "flyer": "https://res.cloudinary.com/dxh6odohl/image/upload/v1773851102/longgoodbye_quoru2.webp"
 }
+*/
