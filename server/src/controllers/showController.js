@@ -1,4 +1,4 @@
-const Show = require('../models/Show');
+const Show = require('../models/Show.js');
 const mongoose = require('mongoose');
 
 exports.getUpcomingShows = async (req, res) => {
