@@ -1,0 +1,57 @@
+.showCard {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.showCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);
+  border-color: #ff0000;
+}
+
+.cardFlyer {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-bottom: 2px solid #333;
+  transition: border-color 0.2s;
+}
+
+.showCard:hover .cardFlyer {
+  border-color: #ff0000;
+}
+
+.cardContent {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardHeadliner {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cardDetails {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0 0 15px 0;
+}
+
+.cardAction {
+  color: #ff0000;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: auto;
+  border-top: 1px dashed #333;
+  padding-top: 15px;
+}
