@@ -1,0 +1,22 @@
+/* SOHC Base Logic Styles */
+body {
+  margin: 0;
+  background-color: #000; /* Black background */
+  color: #fff;            /* White text */
+  font-family: 'Courier New', Courier, monospace; /* Gritty mono font */
+}
+
+a {
+  color: #ff0000; /* Red links for that hardcore vibe */
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  display: block;
+  margin-bottom: 10px;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  padding: 10px;
+}

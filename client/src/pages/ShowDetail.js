@@ -45,29 +45,21 @@ const ShowDetail = () => {
         </div>
       )}
 
-      {/* 3. Spotify Tracks Logic */}
+      {/* 3. Spotify Link Logic */}
       <div style={{ marginTop: '30px', borderTop: '1px solid white' }}>
         <h3>LISTEN TO {show.headliner}:</h3>
         
-        {show.spotifyTracks && show.spotifyTracks.length > 0 ? (
-          show.spotifyTracks.map((track) => (
-            <div key={track.id} style={{ margin: '15px 0' }}>
-              <p><strong>{track.name}</strong></p>
-              
-              {/* Logic: Using the preview_url from your backend */}
-              {track.preview_url ? (
-                <audio controls src={track.preview_url}>
-                  Your browser does not support the audio element.
-                </audio>
-              ) : (
-                <p style={{ fontSize: '0.8rem', color: 'gray' }}>
-                  (Preview unavailable - listen on Spotify)
-                </p>
-              )}
-            </div>
-          ))
+        {show.spotifyArtistId ? (
+          <a
+            href={`https://open.spotify.com/artist/${show.spotifyArtistId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'white', textDecoration: 'underline' }}
+          >
+            Open {show.headliner} on Spotify
+          </a>
         ) : (
-          <p>NO TRACKS FOUND FOR THIS ARTIST.</p>
+          <p>NO SPOTIFY ACCOUNT LINKED FOR THIS ARTIST.</p>
         )}
       </div>
 
