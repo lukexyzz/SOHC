@@ -12,6 +12,30 @@ a {
   text-transform: uppercase;
 }
 
+/* ---------------------------------
+   Background & Layout Aesthetics
+-----------------------------------*/
+
+/* Center Column with Red Borders */
+.app-container {
+  max-width: 900px; /* Constrains the width to create the side borders */
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: rgba(5, 5, 5, 0.85); /* Semi-transparent black over video */
+  border-left: 2px solid #ff0000;
+  border-right: 2px solid #ff0000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  padding: 0 0 50px 0; /* padding for bottom */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add inner siding padding to content specifically, so Navbar can span full width of the column */
+.app-content {
+  padding: 0 30px;
+}
+
 input, textarea {
   display: block;
   margin-bottom: 10px;
