@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 
 const {
     getUpcomingShows,
     getPastShows,
     getShowById,
-    getAllShows
+    getAllShows,
+    createShow,
+    deleteShow
 } = require('../controllers/showController');
 
 router.get('/upcoming', getUpcomingShows);
@@ -16,8 +19,8 @@ router.get('/:id', getShowById)
 
 router.get('/', getAllShows)
 
-router.post('/', auth, showController.createShow);
+router.post('/', auth, createShow);
 
-router.delete('/:id', auth, showController.deleteShow);
+router.delete('/:id', auth, deleteShow);
 
 module.exports = router;

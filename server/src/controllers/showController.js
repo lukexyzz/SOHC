@@ -3,16 +3,20 @@ const mongoose = require('mongoose');
 const spotifyService = require('../services/spotifyService.js');
 
 exports.getUpcomingShows = async (req, res) => {
-    try {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+  try {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Start of today
 
-        const shows = await Show.find({ date: { $gte: today } }).sort({ date:1});
+    // Logic: Find shows where date is >= today
+    const shows = await Show.find({ 
+      date: { $gte: today } 
+    }).sort({ date: 1 }); // Sort by soonest first
 
-        res.status(200).json(shows);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching upcoming SOHC gig", error: error.message });
-    }
+    console.log("Found shows:", shows.length);
+    res.json(shows);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };
 
 exports.getPastShows = async (req, res) => {
@@ -42,15 +46,8 @@ exports.getShowById = async (req, res) => {
             return res.status(404).json({ message: "show not found in the database"});
         }
 
-        let tracks = [];
-        if (show.spotifyArtistId) {
-            console.log("Found Artist ID:", show.spotifyArtistId);
-            tracks = await spotifyService.getArtistTopTracks(show.spotifyArtistId);
-        }
-
         res.status(200).json({
-            ...show._doc,
-            spotifyTracks: tracks
+            ...show._doc
         });
 
     } catch (error) {
